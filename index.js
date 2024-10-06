@@ -22,6 +22,16 @@ app.get('/contact', (req, res) => {
     res.send('ini adalah halaman Contact')
 });
 
+app.get('/blog/:judul', (req, res) => {
+    const { judul } = req.params
+    res.send(`ini adalah halaman ${judul}`)
+});
+
+app.get('/blog/:category/:judul/:author', (req, res) => {
+    const { category, judul, author } = req.params
+    res.send(`blog dengan category: ${category} | Author : ${author} | ${judul}`)
+});
+
 app.get('/*', (req, res) => {
     res.send('Halaman tidak ditemukan')
 });
